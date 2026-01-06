@@ -1,0 +1,101 @@
+
+
+Write a C# program to print the Fibonacci sequence up to N terms.
+
+
+0,1,1,2,3,5,8,13,21,34
+
+
+int nth = 10, a=0, b=1, c;
+
+Console.WriteLine(a +" "+ b);
+
+for(int i=2; i<nth; i++) {
+c = a+b;
+Console.WriteLine(c +" ");
+a=b;
+b=c;
+}
+
+
+---------------
+Find the next number in the sequence and write code for it:
+2, 6, 12, 20, ?
+
+2-6=4
+12-6=6
+20-12=8
+30-20=10
+
+int[] sequence = { 2, 6, 12, 20 };
+
+        int diff = sequence[1] - sequence[0]; // initial difference = 4
+
+        for (int i = 1; i < sequence.Length; i++)
+        {
+            diff += 2;
+        }
+
+        int nextNumber = sequence[sequence.Length - 1] + diff;
+
+        Console.WriteLine("Next number in sequence is: " + nextNumber);
+
+----------------------------------------
+Find the next number in the sequence and write the logic (code optional):
+1, 4, 9, 16, ?
+
+int num = 1;
+int diff = 3;
+
+for (int i = 1; i < 5; i++)
+{
+    num += diff;
+    diff += 2;
+}
+
+Console.WriteLine(num); // 25
+
+
+---------------------------------
+find factorial of given number : 5
+factorial sequence:
+
+int factorial = 1;
+for(int i=0; i<5; i++){
+  factorial * = i; 
+}
+Console.WriteLine(factorial);
+
+------------------------------
+
+string s="kaajjjjaaal";
+Console.Write(s[0]);
+
+for (int i = 1; i < s.Length; i++)
+{
+    if (s[i] != s[i - 1])
+    {
+        Console.Write(s[i]);
+    }
+}
+
+------------------------------
+
+string name = "kajal"
+
+string s = "kaajjjjaaal";
+StringBuilder rev = new StringBuilder();
+
+for (int i = s.Length - 1; i >= 0; i--)
+{
+    rev.Append(s[i]);
+}
+
+Console.WriteLine(rev.ToString());
+
+-------------------------
+
+Check whether a given string is a palindrome.
+
+
+string s = "madam";
