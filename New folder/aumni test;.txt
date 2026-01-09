@@ -1,0 +1,71 @@
+using System;
+using System.Text;
+
+class Program
+{
+    static void Main()
+    {
+        string xvowel = "abeiout";
+        string input = "Testing is a boring job";
+
+        StringBuilder result = new StringBuilder();
+
+        foreach (char c in input)
+        {
+            if (!xvowel.Contains(char.ToLower(c)))
+            {
+                result.Append(c);
+            }
+        }
+
+        Console.WriteLine(result.ToString());
+    }
+}
+
+
+--------------------
+
+
+using System;
+using System.IO;
+using System.Text;
+
+class Program
+{
+    static bool IsXVowel(char c)
+    {
+        return c == 'a' || c == 'b' || c == 'e' ||
+               c == 'i' || c == 'o' || c == 'u' || c == 't';
+    }
+
+    static void Main()
+    {
+        string input = File.ReadAllText("input.txt");
+
+        StringBuilder result = new StringBuilder();
+        int i = 0;
+
+        while (i < input.Length)
+        {
+            if (IsXVowel(input[i]))
+            {
+                int start = i;
+                while (i < input.Length && IsXVowel(input[i]))
+                    i++;
+
+                int count = i - start;
+
+                // keep only single xvowel
+                if (count == 1)
+                    result.Append(input[start]);
+            }
+            else
+            {
+                result.Append(input[i]);
+                i++;
+            }
+        }
+
+        File.WriteAllText("output.txt", result.ToString());
+    }
+}

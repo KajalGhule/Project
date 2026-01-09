@@ -1,0 +1,234 @@
+DotNet
+1. In short total year experiences
+
+
+2. 
+
+1. Version 7
+2. Request Delegate
+->
+ A Request Delegate is a function that handles an HTTP request in ASP.NET Core.
+It represents a single step in the middleware pipeline and processes a n incoming request and produces a response.
+
+public delegate Task RequestDelegate(HttpContext context);
+
+Where is Request Delegate used?
+It is used inside Middleware
+Every middleware component receives a RequestDelegate called next
+This next delegate points to the next middleware in the pipeline
+
+app.Use(async (context, next) =>
+{
+    // Before next middleware
+    await context.Response.WriteAsync("Before\n");
+
+    await next(); // calls next RequestDelegate
+
+    // After next middleware
+    await context.Response.WriteAsync("After\n");
+});
+
+Why is Request Delegate important?
+It allows ASP.NET Core to build a pipeline where each middleware:
+Can process the request
+Decide to pass it forward
+Or stop the pipeline (short-circuit)
+
+Request Delegate is a function that processes an HTTP request and represents a middleware component in the ASP.NET Core pipeline.
+----------------------------------------------------------------
+
+Difference Between Use and Run Method
+-
+Use()
+Use() is used to add middleware that can pass the request to the next middleware in the pipeline.
+
+Run()
+Run() is used to terminate the request pipeline.
+-----------------------------
+
+What is Service Lifetime in ASP.NET Core?
+Service lifetime defines how long a service instance lives in the Dependency Injection (DI) container.
+
+ASP.NET Core provides three service lifetimes:
+Transient
+Scoped
+Singleton
+
+
+----------------------------------
+
+Is it possible to run an ASP.NET Core application without middleware?
+🔹 Short Answer (Interview Style):
+No.
+An ASP.NET Core application cannot process HTTP requests without middleware.
+
+
+-------------------------------------
+
+Default 5 Middleware in ASP.NET Core
+
+app.UseExceptionHandler();
+app.UseHttpsRedirection();
+app.UseStaticFiles();
+app.UseRouting();
+app.UseAuthentication();
+app.UseAuthorization();
+app.MapControllers();
+
+------------------------
+
+Difference between IEnumarable and IQurable
+
+
+
+
+
+------------------------------------
+
+
+Atharva
+DotNet
+1. In short about year experiences
+
+2. What is OOPs concepts?
+
+3. What is function overloading?
+
+4. What is inheritance and types of inheritance?
+
+5. Access modifiers?
+
+6. Difference between Array and ArrayList?
+
+7. what is Sealed class?
+
+8. What is exception handling?
+
+9. what is difference types of loop
+
+10. what is while loop and do while loop
+
+11. What is break and continue statement
+
+12. What is abstract class?
+
+13. What is interface?
+
+14. What is asp.net page life cycle
+
+15. What is cookies in asp.net
+
+16. What is session?
+
+17. What is state management?
+
+18. What is client and server side validation?
+
+19. what is differ hyperlink and Link btn?  
+
+20. what is post back event?
+
+21. what is Viewbag in MVC?
+
+22. What is partial view?
+
+23. What is filters?
+
+24. What is return types in MVC?
+
+25. What is SQL?
+
+26. What is foreign key?
+
+27. What is difference type of constrain in sql?
+
+28. What is Having clouse?
+
+29. What is difference between Store procedure and Function??
+
+30. What is difference between truck and Trucket?
+
+31. What is aggregate function?
+
+32. What is alias?
+
+33. What is ado.net?
+
+34. What is main piller ado.net?
+
+35. What is ExecuteScaler?
+
+36. What is Data adapter?
+
+37. What is javascript?
+
+38. What are different data type in javascript?
+
+39. What are in built function in javascript?
+
+40. 
+
+
+
+
+
+-----------------------------------------------
+
+
+1. What is use request delegate?
+
+2. What is use of Use and Run method?
+
+3. What is service lifetime?
+
+4. Is it possible to run our application without middleware and why? (with example)
+
+5. Any 5 default middleware?
+
+6. What is difference IEnumarable and IQuerable?
+
+7. What is difference Abstract class and Interface?
+
+8. Can we create object of abstract class?
+
+9. What is difference function and store procedure
+
+10. What is difference Curser and function
+
+11. What is difference varchar and nvarchar
+
+12. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
